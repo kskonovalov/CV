@@ -1,16 +1,11 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React, {useState} from 'react';
+import { NavLink } from 'react-router-dom';
 import LinksData from '../data/LinksData';
 
-class Links extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menuOpen: false
-    }
-  }
+const Links = () => {
+  const [menuOpen, updMenuOpen] = useState(false);
 
-  renderLink = (item, index) => {
+  const renderLink = (item, index) => {
     const iconClass = `fa fa-${item.icon} sidebar__link-icon`;
     return <li key={index} className="sidebar__link-wrap">
       <NavLink to={item.link} className='waves-effect waves-light sidebar__link-item'
@@ -19,25 +14,21 @@ class Links extends React.Component {
       </NavLink>
     </li>;
   };
-  toggleMenu = () => {
-    this.setState({
-      menuOpen: !this.state.menuOpen
-    })
+  const toggleMenu = () => {
+    updMenuOpen(!menuOpen);
   };
 
-  render() {
-    return (
-      <React.Fragment>
-          <div className={`sidebar__menu-button
-           ${this.state.menuOpen ? "sidebar__menu-button_visible" : ""}`} onClick={this.toggleMenu}>
-            <i className={`fa ${this.state.menuOpen ? "fa-times" : "fa-bars"}`}></i>
-          </div>
-            <ul className={`sidebar__links ${this.state.menuOpen ? "sidebar__links_visible" : ""}`}>
-              {LinksData.map((item, index) => this.renderLink(item, index))}
-            </ul>
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <React.Fragment>
+        <div className={`sidebar__menu-button
+         ${menuOpen ? "sidebar__menu-button_visible" : ""}`} onClick={toggleMenu}>
+          <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
+        </div>
+          <ul className={`sidebar__links ${menuOpen ? "sidebar__links_visible" : ""}`}>
+            {LinksData.map((item, index) => renderLink(item, index))}
+          </ul>
+    </React.Fragment>
+  );
+};
 
 export default Links;
