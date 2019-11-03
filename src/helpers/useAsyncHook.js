@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import NProgress from 'nprogress';
 
 const useAsyncHook = link => {
@@ -8,7 +8,7 @@ const useAsyncHook = link => {
   useEffect(() => {
     (async () => {
       try {
-        if(!loading && result.length === 0) {
+        if (!loading && result.length === 0) {
           console.log('loading true');
           NProgress.start();
           setLoading(true);

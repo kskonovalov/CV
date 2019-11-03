@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LinksData from '../data/LinksData';
 
@@ -14,19 +14,20 @@ const Links = () => {
       </NavLink>
     </li>;
   };
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
     <React.Fragment>
-        <div className={`sidebar__menu-button
+      <div className={`sidebar__menu-button
          ${menuOpen ? "sidebar__menu-button_visible" : ""}`} onClick={toggleMenu}>
-          <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
-        </div>
-          <ul className={`sidebar__links ${menuOpen ? "sidebar__links_visible" : ""}`}>
-            {LinksData.map((item, index) => renderLink(item, index))}
-          </ul>
+        <i className={`fa ${menuOpen ? "fa-times" : "fa-bars"}`}></i>
+      </div>
+      <ul className={`sidebar__links ${menuOpen ? "sidebar__links_visible" : ""}`}>
+        {LinksData.map((item, index) => renderLink(item, index))}
+      </ul>
     </React.Fragment>
   );
 };
