@@ -1,30 +1,33 @@
 import React from 'react';
-// content
-import PersonalData, { PersonalDataAdditional } from '../../data/PersonalData';
 
+import useAsyncHook from '../../helpers/useAsyncHook';
+// import PersonalData, { PersonalDataAdditional } from '../../data/PersonalData';
+
+
+// TODO: fix this :)
 const Contact = () => {
+  const [personal, loading] = useAsyncHook('data/personal.json');
+  const { data = {}, additional = {} } = personal;
   const contacts = ['email', 'phone', 'skype', 'linkedin'];
 
   const renderField = field => {
-    const item = PersonalData[field];
-    const { link } = PersonalDataAdditional[field];
+    if(typeof data[field] === 'undefined') {
+      return false;
+    }
+    const item = data[field];
+    const { link } = additional[field];
     const blankIcon = (
       <i className="fa fa-external-link contact-info__icon contact-info__icon_small" />
     );
     return (
       <li
         className="contact-info__item"
-        title={
-          PersonalDataAdditional[field].preferred && 'Use this one, please'
-        }
-        target={PersonalDataAdditional[field].blank ? '_blank' : ''}
+        title={additional[field].preferred && 'Use this one, please'}
         key={item}
       >
-        <i
-          className={`fa ${PersonalDataAdditional[field].icon} contact-info__icon`}
-        />
-        <a href={link}>
-          {item} {PersonalDataAdditional[field].blank && blankIcon}
+        <i className={`fa ${additional[field].icon} contact-info__icon`} />
+        <a href={link} target={additional[field].blank ? '_blank' : ''}>
+          {item} {additional[field].blank && blankIcon}
         </a>
       </li>
     );

@@ -1,0 +1,39 @@
+{
+  "data": {
+    "photo": "/assets/images/photo.png",
+    "name": "John",
+    "surname": "Doe",
+    "position": "Super Mega Developer",
+    "birthday": "01-04-1985",
+    "email": "johndoe@gmail.com",
+    "phone": "+71234567890",
+    "skype": "john-skype",
+    "linkedin": "https://www.linkedin.com/in/john-doe",
+    "cv": "https://docs.google.com/document/d/cv"
+  },
+  "additional": {
+    "email": {
+      "link": "mailto:{value}",
+      "blank": false,
+      "preferred": true,
+      "icon": "fa-envelope"
+    },
+    "phone": {
+      "link": "tel:{value}",
+      "blank": false,
+      "icon": "fa-phone"
+    },
+    "skype": {
+      "link": "skype:{value}?chat",
+      "blank": false,
+      "icon": "fa-skype"
+    },
+    "linkedin": {
+      "blank": true,
+      "icon": "fa-linkedin"
+    },
+    "cv": {
+      "blank": true
+    }
+  }
+}
