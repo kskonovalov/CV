@@ -1,25 +1,27 @@
-[{
-  "title": "Sirena",
-  "description": "<p>App to help view and count money of sold tickets for accounting.</p>\n              <p>It uses api to get data, i used <a href='https://www.mockapi.io/' target='_blank' rel=\"noopener noreferrer\">MockApi</a> to get some sample data.</p>\n              <p>The app <b>creates</b> a request to api when changing <b>date</b> or <b>count</b> of entries to load.</p>\n              <p>App <b>counts</b> total sum of money and separately total sum for <b>highlighted</b> items.\n                {' '}<b>Highlighted</b> can be just a flag provided by api, or it can be computed depends of current data item.</p>\n              <p>App allows to <b>show or hide table's columns</b>.</p>\n              <p>App <b>saves settings changes</b> like Limit, date, visible table columns values <b>in cookies</b>.</p>\n              <p>Table fields saved in config, and <b>any function can be attached</b> to each field to change view of value (for ex, replace boolean 'true' to '+').</p>",
-  "tech": {
-    "main": "React, React hooks, CRA, react-datepicker, Bootstrap, react-cookie.",
-    "additional": "ESlint with airbnb rules, prettier."
-  },
-  "buttons": [
-    {
-      "title": "See in action",
-      "link": "http://kskonovalov.me/samples/sirena/"
+[
+  {
+    "title": "Sirena",
+    "description": "<p>App to help view and count money of sold tickets for accounting.</p>\n              <p>It uses api to get data, i used <a href='https://www.mockapi.io/' target='_blank' rel=\"noopener noreferrer\">MockApi</a> to get some sample data.</p>\n              <p>The app <b>creates</b> a request to api when changing <b>date</b> or <b>count</b> of entries to load.</p>\n              <p>App <b>counts</b> total sum of money and separately total sum for <b>highlighted</b> items.\n                {' '}<b>Highlighted</b> can be just a flag provided by api, or it can be computed depends of current data item.</p>\n              <p>App allows to <b>show or hide table's columns</b>.</p>\n              <p>App <b>saves settings changes</b> like Limit, date, visible table columns values <b>in cookies</b>.</p>\n              <p>Table fields saved in config, and <b>any function can be attached</b> to each field to change view of value (for ex, replace boolean 'true' to '+').</p>",
+    "tech": {
+      "main": "React, React hooks, CRA, react-datepicker, Bootstrap, react-cookie.",
+      "additional": "ESlint with airbnb rules, prettier."
     },
-    {
-      "title": "Github",
-      "link": "https://github.com/picprofit/Sirena"
-    }
-  ],
-  "images": [
-    {
-      "thumb": "/assets/images/portfolio/sirena-small.jpg",
-      "full": "/assets/images/portfolio/sirena.png",
-      "alt": "Sirena screenshot"
-    }
-  ]
-}]
+    "buttons": [
+      {
+        "title": "See in action",
+        "link": "http://kskonovalov.me/samples/sirena/"
+      },
+      {
+        "title": "Github",
+        "link": "https://github.com/picprofit/Sirena"
+      }
+    ],
+    "images": [
+      {
+        "thumb": "/assets/images/portfolio/sirena-small.jpg",
+        "full": "/assets/images/portfolio/sirena.png",
+        "alt": "Sirena screenshot"
+      }
+    ]
+  }
+]

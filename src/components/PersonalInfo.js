@@ -1,8 +1,8 @@
 import React from 'react';
-import PersonalData, { PersonalDataAdditional } from "../data/PersonalData";
+import PersonalData, { PersonalDataAdditional } from '../data/PersonalData';
 
-class PersonalInfo extends React.Component {
-  fields = {
+const PersonalInfo = () => {
+  const fields = {
     birthday: 'date of birth',
     email: 'e-mail',
     phone: 'phone',
@@ -11,32 +11,38 @@ class PersonalInfo extends React.Component {
     cv: 'CV in google docs'
   };
 
-  renderField = (field) => {
-    if(PersonalData[field] !== "undefined") {
-      if(PersonalDataAdditional[field] !== undefined) {
-        let target = '_self';
-        if(PersonalDataAdditional[field].blank) {
-          target = '_blank';
-        }
-        return <div className="personal-item" key={field}>
-          <em>{this.fields[field]}:</em>
-          <span><a href={PersonalDataAdditional[field].link} target={target}>{PersonalData[field]}</a></span>
-        </div>;
-      } else {
-        return <div className="personal-item" key={field}>
-          <em>{this.fields[field]}:</em>
+  const renderField = field => {
+    if (PersonalData[field] !== 'undefined') {
+      const target =
+        PersonalDataAdditional[field] !== undefined &&
+        PersonalDataAdditional[field].blank
+          ? '_blank'
+          : '_self';
+      return PersonalDataAdditional[field] !== undefined ? (
+        <div className="personal-item" key={field}>
+          <em>{fields[field]}:</em>
+          <span>
+            <a href={PersonalDataAdditional[field].link} target={target}>
+              {PersonalData[field]}
+            </a>
+          </span>
+        </div>
+      ) : (
+        <div className="personal-item" key={field}>
+          <em>{fields[field]}:</em>
           <span>{PersonalData[field]}</span>
-        </div>;
-      }
+        </div>
+      );
     }
+    return null;
   };
 
-  render() {
-    return <React.Fragment>
+  return (
+    <>
       <h2>Personal info</h2>
-      {Object.keys(this.fields).map((objectKey) => this.renderField (objectKey))}
-    </React.Fragment>;
-  }
-}
+      {Object.keys(fields).map(objectKey => renderField(objectKey))}
+    </>
+  );
+};
 
 export default PersonalInfo;

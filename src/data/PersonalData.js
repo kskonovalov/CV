@@ -8,7 +8,8 @@ const PersonalData = {
   phone: '+7(909)553-56-76',
   skype: 'konst-mb',
   linkedin: 'https://www.linkedin.com/in/konstantin-konovalov',
-  cv: 'https://docs.google.com/document/d/15_D6FMacbpgnTg-qZ_fHtnkgVlSIcWA2iqwOQmZnFNY'
+  cv:
+    'https://docs.google.com/document/d/15_D6FMacbpgnTg-qZ_fHtnkgVlSIcWA2iqwOQmZnFNY'
 };
 
 export const PersonalDataAdditional = {
@@ -34,7 +35,8 @@ export const PersonalDataAdditional = {
     icon: 'fa-linkedin'
   },
   cv: {
-    link: 'https://docs.google.com/document/d/15_D6FMacbpgnTg-qZ_fHtnkgVlSIcWA2iqwOQmZnFNY',
+    link:
+      'https://docs.google.com/document/d/15_D6FMacbpgnTg-qZ_fHtnkgVlSIcWA2iqwOQmZnFNY',
     blank: true
   }
 };

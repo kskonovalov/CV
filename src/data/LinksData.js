@@ -23,7 +23,7 @@ const LinksData = [
     link: '/contact',
     name: 'Contact',
     icon: 'envelope'
-  },
+  }
 ];
 
 export default LinksData;

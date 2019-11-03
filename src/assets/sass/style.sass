@@ -271,9 +271,17 @@ div.transition-group
     top: 20px
     left: 5%
     font-size: 26px
+    background: transparent
+    border: 0
+    outline: none
+    border: 1px solid transparent
     +transition(all .3s ease-in-out)
+    &:focus
+      background: transparent
+      border-color: #d4d4d4
     &.sidebar__menu-button_visible
       left: calc(270px + 5%)
+      background: transparent
   .sidebar__links
     position: absolute
     z-index: 10

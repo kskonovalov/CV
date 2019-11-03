@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import AppRouter from './components/AppRouter';
-
-import * as serviceWorker from './serviceWorker';
-import 'materialize-css/sass/materialize.scss';
 import 'materialize-css/dist/js/materialize.min';
+import 'materialize-css/sass/materialize.scss';
+
+import AppRouter from './components/AppRouter';
+import * as serviceWorker from './serviceWorker';
+
 import './assets/sass/style.sass';
 
 ReactDOM.render(
