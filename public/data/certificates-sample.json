@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Really cool and hard course",
+    "year": "2019",
+    "description": "I finished really hard and cool course «Advanced React and GraphQL»",
+    "image": "certificates/certificate.png",
+    "thumb": "certificates/certificate-thumb.png",
+    "link": "https://advancedreact.com/"
+  }
+]

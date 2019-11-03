@@ -1,0 +1,283 @@
+$main-color: #1abc9c
+$subtitle-color: #2c383c
+$page-bg: #f3f3f3
+$content-bg: #fff
+=transition($params)
+  -webkit-transition: $params
+  -moz-transition: $params
+  -ms-transition: $params
+  -o-transition: $params
+  transition: $params
+=shadow($params)
+  -webkit-box-shadow: $params
+  -moz-box-shadow: $params
+  box-shadow: $params
+
+#root
+  background: $page-bg
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+  +transition(all .3s ease-in-out)
+  font-size: 17px
+  font-weight: 400
+  line-height: 29px
+  color: #555555
+  padding-top: 70px
+h1
+  font-size: 32px
+  font-weight: 300
+  margin: 0
+  line-height: 36px
+  color: #606060
+  b
+    font-weight: 700
+    color: #000
+  span
+    font-size: 26px
+    display: block
+  &:after
+    content: ''
+    display: block
+    height: 3px
+    width: 70px
+    background: $main-color
+    margin: 20px 0
+h2
+  color: $subtitle-color
+  margin: 25px 0 0
+  font-size: 24px
+  font-weight: 300
+  &:after
+    content: ''
+    display: block
+    height: 2px
+    width: 50px
+    background: $main-color
+    margin: 20px 0
+h3
+  color: $subtitle-color
+  font-size: 20px
+.row .col.content-wrap
+  padding: 0
+  -webkit-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.3)
+  -moz-box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.3)
+  box-shadow: 5px 5px 15px 0px rgba(0,0,0,0.3)
+.content
+  padding: 30px 30px 30px 30px
+  background: $content-bg
+
+/*sidebar*/
+.sidebar,
+.row .col.sidebar
+  padding: 0 0 0 25px
+  .sidebar__image-wrap
+    line-height: 0
+  .sidebar__image-item
+    width: 100%
+.sidebar__links
+  margin: 0
+  .sidebar__link-wrap
+    display: block
+  .sidebar__link-item
+    display: block
+    border-bottom: 1px solid #222b2e
+    position: relative
+    list-style: none
+    background: -moz-linear-gradient(top, #2c383c 0%, #2a363a 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2c383c), color-stop(100%,#2a363a))
+    background: -webkit-linear-gradient(top, #2c383c 0%,#2a363a 100%)
+    background: -o-linear-gradient(top, #2c383c 0%,#2a363a 100%)
+    background: -ms-linear-gradient(top, #2c383c 0%,#2a363a 100%)
+    background: linear-gradient(to bottom, #2c383c 0%,#2a363a 100%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c383c', endColorstr='#2a363a',GradientType=0 )
+    padding: 20px 25px
+    text-align: right
+    font-size: 17px
+    color: #fff
+    cursor: pointer
+    .sidebar__link-icon
+      display: inline-block
+      margin-left: 10px
+    .sidebar__link-icon-wrap
+      position: relative
+      z-index: 20
+    &:before
+      content: ''
+      position: absolute
+      top: 0px
+      width: 0%
+      height: 100%
+      right: 0px
+      background: rgba($main-color, 0.8)
+      +transition(all .3s ease-in-out)
+    &:hover:before,
+    &.active-link:before
+      width: 100% !important
+
+/*footer*/
+footer
+  background: #f1f1f1
+  height: 70px
+  padding: 20px 30px
+  color: #000000
+  font-size: 14px
+.footer-social
+  text-align: right
+  a
+    color: #000
+    font-size: 18px
+
+/*progress bar*/
+#nprogress .bar
+  background: $main-color
+#nprogress .peg
+  box-shadow: 0 0 10px $main-color, 0 0 5px $main-color
+#nprogress .spinner-icon
+  border-top-color: $main-color
+  border-left-color: $main-color
+
+/*routes transition*/
+.fade-enter
+  opacity: 0.01
+.fade-enter.fade-enter-active
+  opacity: 1
+  transition: opacity 300ms ease-in
+  position: absolute
+  top: 0
+  width: 100%
+.fade-exit
+  opacity: 1
+.fade-exit.fade-exit-active
+  opacity: 0.01
+  transition: opacity 300ms ease-in
+div.transition-group
+  position: relative
+
+/*profile tab*/
+.skills-line,
+.personal-item
+  margin-right: 20px
+  margin-bottom: 20px
+  border: 1px solid #ededed
+  background: #f6f6f6
+  em
+    line-height: 38px
+    font-size: 16px
+    color: #9b9b9b
+    font-weight: 400
+    font-style: normal
+    padding: 10px 15px
+    background: #fff
+    white-space: nowrap
+    border-right: 1px solid #ededed
+    border-bottom: 1px solid #ededed
+  span
+    display: inline-block
+    line-height: 38px
+    font-size: 16px
+    color: #484848
+    font-weight: 400
+    background: #f6f6f6
+    cursor: pointer
+    padding: 2px 8px
+    margin: 0 1px
+    border-left: 0
+    white-space: nowrap
+    +transition(all .3s ease-in-out)
+    &:hover
+      +shadow(0px 0px 15px -8px rgba(0,0,0,0.75))
+.skills-line
+  display: inline-block
+.personal-item
+  display: inline-block
+  max-width: 100%
+  overflow: hidden
+  white-space: nowrap
+
+/*portfolio tab*/
+.card-content,
+.card .card-content
+  padding: 0 24px 24px 24px
+.card-image
+  margin-bottom: 20px
+.card-image-wrap
+  margin-top: 10px
+.card-image-wrap img
+  border: 1px solid #e4e4e4
+.card-action__button
+  margin-right: 15px
+
+/*resume tab*/
+.work-list__item
+  padding: 20px 0 25px
+  border-bottom: 1px solid lightgray
+  &:first-child
+    padding-top: 0
+  &:last-child
+    border: 0
+.tabs.portfolio-tabs .tab a
+  color: $main-color
+  font-size: 16px
+.tabs.portfolio-tabs .tab a.active
+  color: $main-color
+  font-weight: 600
+.tabs.portfolio-tabs .tab a:focus
+  background-color: rgba($main-color, 0.03)
+.tabs.portfolio-tabs .indicator
+  background-color: $main-color
+
+/*certificate tab*/
+.certificate__title
+  font-weight: bold
+.certificate__meta-wrap
+  font-size: 14px
+.certificate__meta-year
+  display: inline-block
+.certificate__meta-link-icon
+  display: inline-block
+  margin-left: 5px
+  font-size: 12px
+.certificate__date
+  display: inline-block
+  margin-left: 10px
+  font-weight: normal
+  font-size: 16px
+.certificate__date-icon
+  display: inline-block
+  margin-right: 5px
+
+/*contact tab*/
+.contact-info__item
+  display: inline-block
+  margin: 0 18px 15px 0
+  font-size: 14px
+  color: #828282
+  list-style: none
+.contact-info__icon
+  margin-right: 5px
+  color: #4c4d4f
+  font-size: 16px
+.contact-info__icon_small
+  font-size: 12px
+
+/*mobile*/
+.sidebar__menu-button
+  display: none
+@media only screen and (max-width: 600px)
+  .sidebar__menu-button
+    display: block
+    position: absolute
+    top: 20px
+    left: 5%
+    font-size: 26px
+    +transition(all .3s ease-in-out)
+    &.sidebar__menu-button_visible
+      left: calc(270px + 5%)
+  .sidebar__links
+    position: absolute
+    z-index: 10
+    top: 10px
+    left: -250px
+    width: 250px
+    +transition(all .3s ease-in-out)
+    &.sidebar__links_visible
+      left: 10px

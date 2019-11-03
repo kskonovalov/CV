@@ -1,0 +1,23 @@
+[
+  {
+    "title": "My cool project",
+    "description": "I did really cool things there",
+    "tech": {
+      "main": "React, Redux, JavaScript",
+      "additional": "ESlint, Prettier"
+    },
+    "buttons": [
+      {
+        "title": "Check it live",
+        "link": "https://google.com"
+      }
+    ],
+    "images": [
+      {
+        "thumb": "/assets/images/portfolio/portfolio-thumb.jpg",
+        "full": "/assets/images/portfolio/portfolio-full.jpg",
+        "alt": "My cool project screenshot"
+      }
+    ]
+  }
+]

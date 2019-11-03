@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Advanced React and GraphQL",
+    "year": "2019 - present",
+    "description": "Study the online course «Advanced React and GraphQL»",
+    "image": "certificates/advanced-react-graphql.png",
+    "thumb": "certificates/advanced-react-graphql-1.png",
+    "link": "https://advancedreact.com/"
+  },
+  {
+    "title": "Learn Redux",
+    "year": "2019",
+    "description": "Completed online course «Learn Redux»",
+    "image": "certificates/learn-redux-2019.png",
+    "thumb": "certificates/learn-redux-2019-1.png",
+    "link": "https://learnredux.com/"
+  },
+  {
+    "title": "React for beginners",
+    "year": "2018",
+    "description": "Completed online course «React for beginners»",
+    "image": "certificates/react-for-beginners-2018.png",
+    "thumb": "certificates/react-for-beginners-2018-1.png",
+    "link": "https://reactforbeginners.com/"
+  },
+  {
+    "title": "ES6 for Everyone",
+    "year": "2018",
+    "description": "Completed online course «ES6 for Everyone — The best way to learn modern ES6 JavaScript»",
+    "image": "certificates/es6-2019.png",
+    "thumb": "certificates/es6-2019-1.png",
+    "link": "https://es6.io/"
+  },
+  {
+    "title": "Wordpress. Personal blog",
+    "year": "2016",
+    "description": "Completed online course «Wordpress. Personal Blog. Creating Website Without Writing Any Code»",
+    "image": "certificates/wp2016.jpg",
+    "thumb": "certificates/wp2016-1.jpg",
+    "link": "https://geekbrains.ru/certificates/74385.en"
+  },
+  {
+    "title": "NodeJS",
+    "year": "2016",
+    "description": "Completed online course «Node.js. Back-End Programming with JavaScript»",
+    "image": "certificates/nodejs2016.jpg",
+    "thumb": "certificates/nodejs2016-1.jpg",
+    "link": "https://geekbrains.ru/certificates/70469.en"
+  },
+  {
+    "title": "Git",
+    "year": "2015",
+    "description": "Completed online course «Git. Easy Start. Version Control System»",
+    "image": "certificates/git2015.jpg",
+    "thumb": "certificates/git2015-1.jpg",
+    "link": "https://geekbrains.ru/certificates/36779.en"
+  }
+]
