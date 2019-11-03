@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import LinksData from '../data/LinksData';
 
 const Links = () => {
-  const [menuOpen, updMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const renderLink = (item, index) => {
     const iconClass = `fa fa-${item.icon} sidebar__link-icon`;
@@ -15,7 +15,7 @@ const Links = () => {
     </li>;
   };
   const toggleMenu = () => {
-    updMenuOpen(!menuOpen);
+    setMenuOpen(!menuOpen);
   };
 
   return (
