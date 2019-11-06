@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Container, Row, Col } from 'react-materialize';
 
 // components
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -23,13 +24,13 @@ const App = ({ location }) => {
   const { photo, name, surname } = { ...PersonalData };
   const fullName = `${name} ${surname}`;
   return (
-    <div className="container">
-      <div className="row">
-        <div className="sidebar col s12 m3">
+    <Container>
+      <Row>
+        <Col s={12} m={3} className="sidebar">
           <Photo image={photo} alt={fullName} />
           <Links currentLocation={location.pathname} />
-        </div>
-        <div className="content-wrap col s12 m9">
+        </Col>
+        <Col s={12} m={9} className="content-wrap">
           <TransitionGroup className="transition-group">
             <CSSTransition
               key={location.key}
@@ -42,9 +43,9 @@ const App = ({ location }) => {
             </CSSTransition>
           </TransitionGroup>
           <FooterComponent />
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
