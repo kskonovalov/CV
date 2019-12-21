@@ -1,6 +1,6 @@
 <?php
-$myEmail = 'k.s.konovalov@gmail.com';
-$title = 'Contact from kskonovalov.me';
+$myEmail = 'mail@to.send';
+$title = 'Contact from portfolio';
 $body = '';
 $message = '';
 $error = true;
