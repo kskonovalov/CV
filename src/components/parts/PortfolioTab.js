@@ -3,7 +3,7 @@ import PortfolioItem from './PortfolioItem';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const PortfolioTab = ({ dataLink }) => {
-  const [data] = useAsyncHook(dataLink);
+  const [data] = useAsyncHook({link: dataLink});
   const { projects, text } = data;
   return (
     <>
