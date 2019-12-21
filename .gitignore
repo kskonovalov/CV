@@ -13,7 +13,7 @@ build
 
 #data
 public/data/*
-public/data/*-sample.json
+!public/data/*-sample.json
 public/assets/images/portfolio/*
 public/contact.php
 
