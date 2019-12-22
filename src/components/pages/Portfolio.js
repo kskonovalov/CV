@@ -5,13 +5,10 @@ import PortfolioTab from '../parts/PortfolioTab';
 import PortfolioData from '../../data/PortolioData';
 
 const Portfolio = ({ tab = 'react' }) => {
-  const handleChange = value => {
-    console.log(value);
-  };
   return (
     <>
       <h1>Portfolio</h1>
-      <Tabs className="portfolio-tabs" onChange={handleChange}>
+      <Tabs className="portfolio-tabs">
         {Object.keys(PortfolioData).map(key => {
           const { title: paramTitle, tab: paramTab, link } = PortfolioData[key];
           return (
