@@ -5,7 +5,6 @@ import 'font-awesome/css/font-awesome.min.css';
 import PersonalData, { PersonalDataAdditional } from '../data/PersonalData';
 
 const FooterComponent = () => {
-  // const year = new Date('Y');
   const year = new Date().getFullYear();
   const { name, surname } = PersonalData;
   return (

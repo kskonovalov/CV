@@ -19,13 +19,13 @@ const Profile = () => {
         <span>{PersonalData.position}</span>
       </h1>
       <p>
-        I'm looking for <b>remote React frontend developer</b> position.
+        I&apos;m looking for <b>remote React frontend developer</b> position.
       </p>
       <p>
-        I'm new in React, but I have a good experience in Web Development. I
-        work as fullstack developer using mainly PHP/JS since 2010 and WordPress
-        since 2015, and now (since 2019) I want to work more with a frontend and
-        React.
+        I&apos;m new in React, but I have a good experience in Web Development.
+        I work as fullstack developer using mainly PHP/JS since 2010 and
+        WordPress since 2015, and now (since 2019) I want to work more with a
+        frontend and React.
       </p>
       <p>
         For now I created a couple of apps in React, you can see them in{' '}

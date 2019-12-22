@@ -35,7 +35,7 @@ const Links = () => {
          ${menuOpen ? 'sidebar__menu-button_visible' : ''}`}
         onClick={toggleMenu}
       >
-        <i className={`fa ${menuOpen ? 'fa-times' : 'fa-bars'}`}/>
+        <i className={`fa ${menuOpen ? 'fa-times' : 'fa-bars'}`} />
       </button>
       <ul
         className={`sidebar__links ${menuOpen ? 'sidebar__links_visible' : ''}`}

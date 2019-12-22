@@ -51,7 +51,7 @@ const Contact = () => {
         formSent: true
       });
       // if form was sent correctly, clean the form fields
-      if(!content.error) {
+      if (!content.error) {
         setFormData({
           name: '',
           email: '',
