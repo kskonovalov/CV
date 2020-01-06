@@ -7,6 +7,7 @@ const PersonalData = {
   email: 'k.s.konovalov@gmail.com',
   phone: '+7(909)553-56-76',
   skype: 'konst-mb',
+  github: "https://github.com/picprofit",
   linkedin: 'https://www.linkedin.com/in/konstantin-konovalov',
   cv:
     'https://docs.google.com/document/d/15_D6FMacbpgnTg-qZ_fHtnkgVlSIcWA2iqwOQmZnFNY'
@@ -33,6 +34,11 @@ export const PersonalDataAdditional = {
     link: 'https://www.linkedin.com/in/konstantin-konovalov',
     blank: true,
     icon: 'fa-linkedin'
+  },
+  github: {
+    link: 'https://github.com/picprofit',
+    blank: true,
+    icon: 'fa-github'
   },
   cv: {
     link:

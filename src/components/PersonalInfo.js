@@ -8,6 +8,7 @@ const PersonalInfo = () => {
     phone: 'phone',
     skype: 'Skype',
     linkedin: 'LinkedIn',
+    github: 'GitHub',
     cv: 'CV in google docs'
   };
 
