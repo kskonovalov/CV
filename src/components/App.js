@@ -8,7 +8,7 @@ import 'nprogress/nprogress.css';
 
 import Photo from './Photo';
 import Links from './Links';
-import FooterComponent from './FooterComponent';
+import Footer from './Footer';
 
 import PagesRouter from './PagesRouter';
 
@@ -42,7 +42,7 @@ const App = ({ location }) => {
               </div>
             </CSSTransition>
           </TransitionGroup>
-          <FooterComponent />
+          <Footer />
         </Col>
       </Row>
     </Container>
