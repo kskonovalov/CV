@@ -1,4 +1,5 @@
 import React from 'react';
+import NProgress from 'nprogress';
 import { Link } from 'react-router-dom';
 
 import { personalDataLink } from '../../config';
@@ -9,13 +10,14 @@ import Skills from '../Skills';
 import PersonalInfo from '../PersonalInfo';
 
 const Profile = () => {
-
+  NProgress.start();
   const [CVData, loading] = useAsyncHook({ link: personalDataLink });
 
   if (loading) {
     return <Loader />;
   }
 
+  NProgress.done();
   if (CVData.length === 0) {
     return <>Something went wrong...</>;
   }

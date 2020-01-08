@@ -1,4 +1,5 @@
 import React from 'react';
+import NProgress from 'nprogress';
 import { Row, Col } from 'react-materialize';
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -9,12 +10,14 @@ import useAsyncHook from '../helpers/useAsyncHook';
 const Footer = () => {
   const year = new Date().getFullYear();
 
+  NProgress.start();
   const [CVData, loading] = useAsyncHook({ link: personalDataLink });
 
   if (loading) {
     return <Loader />;
   }
 
+  NProgress.done();
   if (CVData.length === 0) {
     return <>Something went wrong...</>;
   }

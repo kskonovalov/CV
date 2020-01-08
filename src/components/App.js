@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
+import NProgress from 'nprogress';
 import { Container, Row, Col } from 'react-materialize';
 
 // components
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
 import Photo from './Photo';
@@ -24,12 +24,14 @@ const App = ({ location }) => {
   });
 
 
+  NProgress.start();
   const [CVData, loading] = useAsyncHook({ link: personalDataLink });
 
   if (loading) {
     return <Loader />;
   }
 
+  NProgress.done();
   if (CVData.length === 0) {
     return <>Something went wrong...</>;
   }
