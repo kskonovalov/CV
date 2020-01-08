@@ -1,37 +1,43 @@
 import React from 'react';
-import PersonalData, { PersonalDataAdditional } from '../data/PersonalData';
+
+import Loader from './Loader';
+import { personalDataLink } from '../config';
+import useAsyncHook from '../helpers/useAsyncHook';
 
 const PersonalInfo = () => {
-  const fields = {
-    birthday: 'date of birth',
-    email: 'e-mail',
-    phone: 'phone',
-    skype: 'Skype',
-    linkedin: 'LinkedIn',
-    github: 'GitHub',
-    cv: 'CV in google docs'
-  };
+  const [CVData, loading] = useAsyncHook({ link: personalDataLink });
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (CVData.length === 0) {
+    return <>Something went wrong...</>;
+  }
+
+  const { fields, data, additional } = CVData;
+
 
   const renderField = field => {
-    if (PersonalData[field] !== 'undefined') {
+    if (data[field] !== 'undefined') {
       const target =
-        PersonalDataAdditional[field] !== undefined &&
-        PersonalDataAdditional[field].blank
+        additional[field] !== undefined &&
+        additional[field].blank
           ? '_blank'
           : '_self';
-      return PersonalDataAdditional[field] !== undefined ? (
+      return additional[field] !== undefined ? (
         <div className="personal-item" key={field}>
           <em>{fields[field]}:</em>
           <span>
-            <a href={PersonalDataAdditional[field].link} target={target}>
-              {PersonalData[field]}
+            <a href={additional[field].link} target={target}>
+              {data[field]}
             </a>
           </span>
         </div>
       ) : (
         <div className="personal-item" key={field}>
           <em>{fields[field]}:</em>
-          <span>{PersonalData[field]}</span>
+          <span>{data[field]}</span>
         </div>
       );
     }

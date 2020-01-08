@@ -13,7 +13,9 @@ import Footer from './Footer';
 import PagesRouter from './PagesRouter';
 
 // data
-import PersonalData from '../data/PersonalData';
+import Loader from './Loader';
+import { personalDataLink } from '../config';
+import useAsyncHook from '../helpers/useAsyncHook';
 
 const App = ({ location }) => {
   NProgress.start();
@@ -21,7 +23,20 @@ const App = ({ location }) => {
     NProgress.done();
   });
 
-  const { photo, name, surname } = { ...PersonalData };
+
+  const [CVData, loading] = useAsyncHook({ link: personalDataLink });
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (CVData.length === 0) {
+    return <>Something went wrong...</>;
+  }
+
+  const { data } = CVData;
+
+  const { photo, name, surname } = data;
   const fullName = `${name} ${surname}`;
   return (
     <Container>

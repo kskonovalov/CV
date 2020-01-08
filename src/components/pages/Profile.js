@@ -1,22 +1,35 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// content
-import PersonalData from '../../data/PersonalData';
+import { personalDataLink } from '../../config';
+import useAsyncHook from '../../helpers/useAsyncHook';
 
-// components
+import Loader from '../Loader';
 import Skills from '../Skills';
 import PersonalInfo from '../PersonalInfo';
 
 const Profile = () => {
+
+  const [CVData, loading] = useAsyncHook({ link: personalDataLink });
+
+  if (loading) {
+    return <Loader />;
+  }
+
+  if (CVData.length === 0) {
+    return <>Something went wrong...</>;
+  }
+
+  const { data } = CVData;
+
   return (
     <>
       <h1>
         Hello, I am{' '}
         <b>
-          {PersonalData.name} {PersonalData.surname}
+          {data.name} {data.surname}
         </b>
-        <span>{PersonalData.position}</span>
+        <span>{data.position}</span>
       </h1>
       <p>
         I&apos;m looking for <b>remote React frontend developer</b> position.
