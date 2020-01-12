@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { TextInput, Textarea, Button, Row } from 'react-materialize';
 // import NProgress from 'nprogress';
 
+import { personalDataLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Contact = () => {
-  const [personal] = useAsyncHook({ link: 'data/personal.json', comp: 'contact' });
+  const [personal] = useAsyncHook({ link: personalDataLink, comp: 'contact' });
   const { data = {}, additional = {} } = personal;
   const contacts = ['email', 'phone', 'skype', 'linkedin'];
 
