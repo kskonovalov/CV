@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TextInput, Textarea, Button, Row } from 'react-materialize';
 // import NProgress from 'nprogress';
 
-import { personalDataLink } from '../../config';
+import { personalDataLink, emailHandlerLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Contact = () => {
@@ -97,8 +97,7 @@ const Contact = () => {
       <h2>Or send me a message!</h2>
       <form
         id="contactForm"
-        action="/contact.php"
-        // action="cruzka.json"
+        action={emailHandlerLink}
         method="post"
         onSubmit={e => {
           e.preventDefault();
