@@ -1,10 +1,11 @@
 import React from 'react';
 
 import Certificate from '../parts/Certificate';
+import { certificatesDataLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Certificates = () => {
-  const [result, loading] = useAsyncHook({ link: '/data/certificates.json' });
+  const [result, loading] = useAsyncHook({ link: certificatesDataLink });
   return (
     <>
       <h1>Certificates and Courses</h1>
