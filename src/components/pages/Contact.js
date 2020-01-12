@@ -6,7 +6,7 @@ import { personalDataLink, emailHandlerLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Contact = () => {
-  const [personal] = useAsyncHook({ link: personalDataLink, comp: 'contact' });
+  const [personal] = useAsyncHook({ link: personalDataLink });
   const { data = {}, additional = {} } = personal;
   const contacts = ['email', 'phone', 'skype', 'linkedin'];
 
