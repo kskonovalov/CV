@@ -23,7 +23,6 @@ const App = ({ location }) => {
     NProgress.done();
   });
 
-
   NProgress.start();
   const [CVData, loading] = useAsyncHook({ link: personalDataLink });
 

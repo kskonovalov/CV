@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { TextInput, Textarea, Button, Row } from 'react-materialize';
 // import NProgress from 'nprogress';
 
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Contact = () => {
-  const [personal] = useAsyncHook({ link: 'data/personal.json' });
+  const [personal] = useAsyncHook({ link: 'data/personal.json', comp: 'contact' });
   const { data = {}, additional = {} } = personal;
   const contacts = ['email', 'phone', 'skype', 'linkedin'];
 
@@ -16,7 +16,7 @@ const Contact = () => {
     message: ''
   });
 
-  //result of form submission
+  // result of form submission
   const [formState, updateFormState] = useState({
     error: false,
     message: '',
