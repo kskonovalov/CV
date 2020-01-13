@@ -1,5 +1,8 @@
 import React from 'react';
+
 import PortfolioItem from './PortfolioItem';
+import Loader from '../Loader';
+
 import useAsyncHook from '../../helpers/useAsyncHook';
 
 const PortfolioTab = ({ dataLink }) => {
@@ -7,7 +10,7 @@ const PortfolioTab = ({ dataLink }) => {
   const { projects, text } = data;
   return (
     <>
-      <p>{text || 'Loading..'}</p>
+      <p>{text || <Loader />}</p>
       {typeof projects !== 'undefined' &&
         projects.length > 0 &&
         projects.map(item => {

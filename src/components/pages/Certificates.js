@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Certificate from '../parts/Certificate';
+import Loader from '../Loader';
+
 import { certificatesDataLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 
@@ -9,7 +11,7 @@ const Certificates = () => {
   return (
     <>
       <h1>Certificates and Courses</h1>
-      {loading && 'Loading...'}
+      {loading && <Loader />}
       {typeof result !== 'undefined' &&
         result.map(item => {
           return (
