@@ -1,7 +1,6 @@
-$main-color: #1abc9c
-$subtitle-color: #2c383c
-$page-bg: #f3f3f3
-$content-bg: #fff
+@import "variables"
+@import "loader"
+
 =transition($params)
   -webkit-transition: $params
   -moz-transition: $params
@@ -292,3 +291,5 @@ div.transition-group
     +transition(all .3s ease-in-out)
     &.sidebar__links_visible
       left: 10px
+
+
