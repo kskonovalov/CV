@@ -10,7 +10,7 @@ const PortfolioTab = ({ dataLink }) => {
   const { projects, text } = data;
   return (
     <>
-      <p>{text || <Loader />}</p>
+      {<p>{text}</p> || <Loader />}
       {typeof projects !== 'undefined' &&
         projects.length > 0 &&
         projects.map(item => {
