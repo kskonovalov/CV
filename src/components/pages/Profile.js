@@ -5,6 +5,7 @@ import parse from 'html-react-parser';
 
 import { personalDataLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
+import contentClickHandler from '../../helpers/contentClickHandler';
 
 import Loader from '../Loader';
 import Skills from '../Skills';
@@ -26,13 +27,6 @@ const Profile = () => {
 
   const { data } = CVData;
 
-  const contentClickHandler = e => {
-    const targetLink = e.target.closest('a');
-    if (!targetLink) return;
-    e.preventDefault();
-    history.push(e.target.getAttribute("href"));
-  };
-
   return (
     <>
       <h1>
@@ -43,7 +37,11 @@ const Profile = () => {
         <span>{data.position}</span>
       </h1>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-      <div onClick={contentClickHandler}>
+      <div
+        onClick={e => {
+          contentClickHandler(e, history);
+        }}
+      >
         {CVData.description ? parse(CVData.description) : null}
       </div>
       <Skills />
