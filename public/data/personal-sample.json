@@ -1,39 +1,61 @@
 {
-  "data": {
-    "photo": "/assets/images/photo.png",
-    "name": "John",
-    "surname": "Doe",
-    "position": "Super Mega Developer",
-    "birthday": "01-04-1985",
-    "email": "johndoe@gmail.com",
-    "phone": "+71234567890",
-    "skype": "john-skype",
-    "linkedin": "https://www.linkedin.com/in/john-doe",
-    "cv": "https://docs.google.com/document/d/cv"
-  },
-  "additional": {
+  "photo": "/assets/images/photo.png",
+  "name": "John",
+  "surname": "Doe",
+  "position": "Super Mega Developer",
+  "birthday": "01-04-1985",
+  "contacts": {
     "email": {
-      "link": "mailto:{value}",
+      "value": "john@doe.com",
+      "name": "e-mail",
+      "link": "mailto:john@doe.com",
       "blank": false,
       "preferred": true,
       "icon": "fa-envelope"
     },
     "phone": {
-      "link": "tel:{value}",
+      "value": "+7(123)456789",
+      "name": "phone",
+      "link": "tel:+7123456789",
       "blank": false,
       "icon": "fa-phone"
     },
     "skype": {
-      "link": "skype:{value}?chat",
+      "value": "john-doe-skype",
+      "name": "Skype",
+      "link": "skype:john-doe-skype?chat",
       "blank": false,
       "icon": "fa-skype"
     },
     "linkedin": {
+      "value": "https://www.linkedin.com/in/john-doe",
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com/in/john-doe",
       "blank": true,
       "icon": "fa-linkedin"
     },
+    "github": {
+      "value": "https://github.com/john-doe",
+      "name": "GitHub",
+      "blank": true,
+      "icon": "fa-github"
+    },
+    "telegram": {
+      "value": "@john-doe",
+      "name": "Telegram",
+      "link": "https://t.me/john-doe",
+      "blank": true,
+      "preferred": true,
+      "icon": "fa-telegram"
+    },
     "cv": {
-      "blank": true
+      "value": "https://link/to/cv",
+      "name": "CV in google docs",
+      "link": "https://link/to/cv",
+      "blank": true,
+      "icon": "fa-file-alt"
     }
-  }
+  },
+  "onContactsPage": ["email", "telegram", "phone", "skype", "linkedin"],
+  "description": "<p>I am cool developer! Use &lt;a&gt; tag for <a>links</a> here, it will work with react-router</p>"
 }
