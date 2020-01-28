@@ -17,7 +17,7 @@ const useAsyncHook = ({ link }) => {
         setLoading(false);
       }
     })();
-  }, [link]);
+  }, [link, loading, result.length]);
 
   return [result, loading];
 };
