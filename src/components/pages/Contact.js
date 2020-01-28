@@ -4,6 +4,7 @@ import { TextInput, Textarea, Button, Row } from 'react-materialize';
 
 import { personalDataLink, emailHandlerLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
+import renderContactField from '../../helpers/renderContactField';
 
 const Contact = () => {
   const [personal] = useAsyncHook({ link: personalDataLink });
@@ -60,26 +61,7 @@ const Contact = () => {
       }
     })();
   };
-
-  const renderField = field => {
-    const { blank = false, link, name, value, preferred = false, icon } = field;
-    const blankIcon = (
-      <i className="fa fa-external-link contact-info__icon contact-info__icon_small" />
-    );
-    return (
-      <li
-        className="contact-info__item"
-        title={preferred ? 'Use this one, please' : ''}
-        key={name}
-      >
-        <i className={`fa ${icon} contact-info__icon`} />
-        <a href={link} target={blank ? '_blank' : ''}>
-          {value} {blank && blankIcon}
-        </a>
-      </li>
-    );
-  };
-
+  
   return (
     <>
       <h1>Contact me</h1>
@@ -88,7 +70,7 @@ const Contact = () => {
         <ul className="contact--info">
           {onContactsPage.map(objectKey => {
             if(objectKey in contacts) {
-              return renderField(contacts[objectKey]);
+              return renderContactField(contacts[objectKey]);
             }
             return null;
           })}
@@ -96,7 +78,6 @@ const Contact = () => {
       </div>
       <h2>Or send me a message!</h2>
       <form
-        id="contactForm"
         action={emailHandlerLink}
         method="post"
         onSubmit={e => {
