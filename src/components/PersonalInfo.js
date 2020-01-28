@@ -19,39 +19,31 @@ const PersonalInfo = () => {
     return <>Something went wrong...</>;
   }
 
-  const { fields, data, additional } = CVData;
-
+  const { contacts } = CVData;
 
   const renderField = field => {
-    if (data[field] !== 'undefined') {
-      const target =
-        additional[field] !== undefined &&
-        additional[field].blank
-          ? '_blank'
-          : '_self';
-      return additional[field] !== undefined ? (
-        <div className="personal-item" key={field}>
-          <em>{fields[field]}:</em>
-          <span>
-            <a href={additional[field].link} target={target}>
-              {data[field]}
-            </a>
-          </span>
-        </div>
-      ) : (
-        <div className="personal-item" key={field}>
-          <em>{fields[field]}:</em>
-          <span>{data[field]}</span>
-        </div>
-      );
-    }
-    return null;
+    const target = field.blank ? '_blank' : '_self';
+    return field.link !== undefined ? (
+      <div className="personal-item" key={field.name}>
+        <em>{field.name}:</em>
+        <span>
+          <a href={field.link} target={target}>
+            {field.value}
+          </a>
+        </span>
+      </div>
+    ) : (
+      <div className="personal-item" key={field.name}>
+        <em>{field.name}:</em>
+        <span>{field.value}</span>
+      </div>
+    );
   };
 
   return (
     <>
       <h2>Personal info</h2>
-      {Object.keys(fields).map(objectKey => renderField(objectKey))}
+      {Object.keys(contacts).map(field => renderField(contacts[field]))}
     </>
   );
 };

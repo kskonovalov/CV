@@ -22,9 +22,7 @@ const Footer = () => {
     return <>Something went wrong...</>;
   }
 
-  const { additional } = CVData;
-
-  const { name, surname } = additional;
+  const { name, surname, contacts } = CVData;
 
   return (
     <footer>
@@ -34,7 +32,7 @@ const Footer = () => {
         </Col>
         <Col s={12} m={4} className="footer-social">
           <a
-            href={additional.linkedin.link}
+            href={contacts.linkedin.link}
             target="_blank"
             rel="noopener noreferrer"
           >
