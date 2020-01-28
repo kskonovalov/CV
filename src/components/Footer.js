@@ -32,9 +32,18 @@ const Footer = () => {
         </Col>
         <Col s={12} m={4} className="footer-social">
           <a
+            href={contacts.github.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-social__icon-link"
+          >
+            <i className="fa fa-github" />
+          </a>
+          <a
             href={contacts.linkedin.link}
             target="_blank"
             rel="noopener noreferrer"
+            className="footer-social__icon-link"
           >
             <i className="fa fa-linkedin" />
           </a>
