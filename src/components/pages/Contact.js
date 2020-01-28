@@ -35,9 +35,6 @@ const Contact = () => {
   //   }
   // }, [formData]);
 
-  // const [result, setResult] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // console.log('loading:', loading, result);
   const sendEmail = (formUrl, payload) => {
     (async () => {
       const prepared = new FormData();
