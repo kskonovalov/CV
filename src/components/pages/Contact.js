@@ -7,8 +7,7 @@ import useAsyncHook from '../../helpers/useAsyncHook';
 
 const Contact = () => {
   const [personal] = useAsyncHook({ link: personalDataLink });
-  const { data = {}, additional = {} } = personal;
-  const contacts = ['email', 'phone', 'skype', 'linkedin'];
+  const { contacts = {}, onContactsPage = [] } = personal;
 
   // data in form
   const [formData, setFormData] = useState({
@@ -63,23 +62,19 @@ const Contact = () => {
   };
 
   const renderField = field => {
-    if (typeof data[field] === 'undefined') {
-      return false;
-    }
-    const item = data[field];
-    const { link } = additional[field];
+    const { blank = false, link, name, value, preferred = false, icon } = field;
     const blankIcon = (
       <i className="fa fa-external-link contact-info__icon contact-info__icon_small" />
     );
     return (
       <li
         className="contact-info__item"
-        title={additional[field].preferred && 'Use this one, please'}
-        key={item}
+        title={preferred ? 'Use this one, please' : ''}
+        key={name}
       >
-        <i className={`fa ${additional[field].icon} contact-info__icon`} />
-        <a href={link} target={additional[field].blank ? '_blank' : ''}>
-          {item} {additional[field].blank && blankIcon}
+        <i className={`fa ${icon} contact-info__icon`} />
+        <a href={link} target={blank ? '_blank' : ''}>
+          {value} {blank && blankIcon}
         </a>
       </li>
     );
@@ -91,7 +86,12 @@ const Contact = () => {
       <div className="contact-info">
         <p>Feel free to contact me!</p>
         <ul className="contact--info">
-          {contacts.map(objectKey => renderField(objectKey))}
+          {onContactsPage.map(objectKey => {
+            if(objectKey in contacts) {
+              return renderField(contacts[objectKey]);
+            }
+            return null;
+          })}
         </ul>
       </div>
       <h2>Or send me a message!</h2>
