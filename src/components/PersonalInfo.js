@@ -4,7 +4,7 @@ import NProgress from 'nprogress';
 import Loader from './Loader';
 import { personalDataLink } from '../config';
 import useAsyncHook from '../helpers/useAsyncHook';
-import renderField from '../helpers/renderField';
+import renderAboutField from '../helpers/renderAboutField';
 
 const PersonalInfo = () => {
   NProgress.start();
@@ -25,7 +25,7 @@ const PersonalInfo = () => {
   return (
     <>
       <h2>Personal info</h2>
-      {Object.keys(contacts).map(field => renderField(contacts[field]))}
+      {Object.keys(contacts).map(field => renderAboutField(contacts[field]))}
     </>
   );
 };

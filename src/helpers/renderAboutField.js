@@ -1,6 +1,6 @@
 import React from 'react';
 
-const renderField = field => {
+const renderAboutField = field => {
   const { blank, link, name, value } = field;
   const target = blank ? '_blank' : '_self';
   return link !== undefined ? (
@@ -20,4 +20,4 @@ const renderField = field => {
   );
 };
 
-export default renderField;
+export default renderAboutField;
