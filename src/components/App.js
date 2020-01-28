@@ -35,9 +35,7 @@ const App = ({ location }) => {
     return <>Something went wrong...</>;
   }
 
-  const { data } = CVData;
-
-  const { photo, name, surname } = data;
+  const { photo, name, surname } = CVData;
   const fullName = `${name} ${surname}`;
   return (
     <Container>

@@ -25,16 +25,16 @@ const Profile = () => {
     return <>Something went wrong...</>;
   }
 
-  const { data } = CVData;
+  const { name, surname, position, description } = CVData;
 
   return (
     <>
       <h1>
         Hello, I am{' '}
         <b>
-          {data.name} {data.surname}
+          {name} {surname}
         </b>
-        <span>{data.position}</span>
+        <span>{position}</span>
       </h1>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div
@@ -42,7 +42,7 @@ const Profile = () => {
           contentClickHandler(e, history);
         }}
       >
-        {CVData.description ? parse(CVData.description) : null}
+        {description ? parse(description) : null}
       </div>
       <Skills />
       <PersonalInfo />
