@@ -4,5 +4,8 @@ export { personalDataLink };
 const certificatesDataLink = '/data/certificates.json';
 export { certificatesDataLink };
 
-const emailHandlerLink = '/contact.php';
+const emailHandlerLink =
+  !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
+    ? '/test' // dev
+    : '/contact.php'; // prod
 export { emailHandlerLink };
