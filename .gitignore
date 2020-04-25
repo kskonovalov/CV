@@ -15,6 +15,7 @@ build
 public/data/*
 !public/data/*-sample.json
 public/assets/images/portfolio/*
+public/assets/images/certificates/*
 public/contact.php
 
 # misc
