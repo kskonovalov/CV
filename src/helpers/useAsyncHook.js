@@ -8,7 +8,7 @@ const useAsyncHook = ({ link }) => {
       try {
         if (!loading && result.length === 0) {
           setLoading(true);
-          const response = await fetch(link);
+          const response = await fetch(link, {cache: "no-cache"});
           const json = await response.json();
           setResult(json);
           setLoading(false);
