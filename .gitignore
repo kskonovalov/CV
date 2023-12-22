@@ -17,6 +17,7 @@ public/data/*
 public/assets/images/portfolio/*
 public/assets/images/certificates/*
 public/contact.php
+data/
 
 # misc
 .DS_Store
