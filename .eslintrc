@@ -41,7 +41,6 @@
     "navigator": true,
     "fetch": true
   },
-  "parser": "@babel/eslint-parser",
   "env": {
     "jest": true
   }

@@ -14,7 +14,7 @@ const PagesRouter = () => {
       <Route exact path="/" component={Profile} />
       <Route
         path="/portfolio/wordpress"
-        render={props => <Portfolio {...props} tab="wordpress" />}
+        render={() => <Portfolio tab="wordpress" />}
       />
       <Route path="/portfolio" component={Portfolio} />
       <Route path="/resume" component={Resume} />

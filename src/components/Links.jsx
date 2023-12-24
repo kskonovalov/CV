@@ -34,6 +34,7 @@ const Links = () => {
         className={`sidebar__menu-button
          ${menuOpen ? 'sidebar__menu-button_visible' : ''}`}
         onClick={toggleMenu}
+        aria-label="Toggle menu"
       >
         <i className={`fa ${menuOpen ? 'fa-times' : 'fa-bars'}`} />
       </button>
