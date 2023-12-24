@@ -1,6 +1,6 @@
 import React from 'react';
 import NProgress from 'nprogress';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import parse from 'html-react-parser';
 
 import { personalDataLink } from '../../config';
@@ -11,8 +11,8 @@ import Loader from '../Loader';
 import Skills from '../Skills';
 import PersonalInfo from '../PersonalInfo';
 
-const Profile = () => {
-  const history = useHistory();
+function Profile() {
+  const navigate = useNavigate();
   NProgress.start();
   const [CVData, loading] = useAsyncHook({ link: personalDataLink });
 
@@ -38,8 +38,8 @@ const Profile = () => {
       </h1>
       {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
       <div
-        onClick={e => {
-          contentClickHandler(e, history);
+        onClick={(e) => {
+          contentClickHandler(e, navigate);
         }}
       >
         {description ? parse(description) : null}
@@ -48,6 +48,6 @@ const Profile = () => {
       <PersonalInfo />
     </>
   );
-};
+}
 
 export default Profile;

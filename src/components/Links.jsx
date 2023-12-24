@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LinksData from '../data/LinksData';
 
-const Links = () => {
+function Links() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const renderLink = (item, index) => {
@@ -11,9 +11,11 @@ const Links = () => {
       <li key={index} className="sidebar__link-wrap">
         <NavLink
           to={item.link}
-          className="waves-effect waves-light sidebar__link-item"
-          activeClassName="active-link"
-          exact
+          className={(navData) =>
+            `sidebar__link-item waves-effect waves-light ${
+              navData.isActive ? 'active-link' : ''
+            }`
+          }
         >
           <span className="sidebar__link-icon-wrap">
             {item.name} <i className={iconClass} />
@@ -45,6 +47,6 @@ const Links = () => {
       </ul>
     </>
   );
-};
+}
 
 export default Links;

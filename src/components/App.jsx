@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import NProgress from 'nprogress';
 import { Container, Row, Col } from 'react-materialize';
 
@@ -17,7 +18,8 @@ import Loader from './Loader';
 import { personalDataLink } from '../config';
 import useAsyncHook from '../helpers/useAsyncHook';
 
-const App = ({ location }) => {
+function App() {
+  const location = useLocation();
   NProgress.start();
   useEffect(() => {
     NProgress.done();
@@ -61,6 +63,6 @@ const App = ({ location }) => {
       </Row>
     </Container>
   );
-};
+}
 
 export default App;

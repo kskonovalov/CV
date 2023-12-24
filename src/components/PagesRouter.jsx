@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import Profile from './pages/Profile';
 import Portfolio from './pages/Portfolio';
@@ -8,21 +8,21 @@ import Certificates from './pages/Certificates';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 
-const PagesRouter = () => {
+function PagesRouter() {
   return (
-    <Switch>
-      <Route exact path="/" component={Profile} />
+    <Routes>
+      <Route path="*" element={<Profile />} />
       <Route
         path="/portfolio/wordpress"
         render={() => <Portfolio tab="wordpress" />}
       />
-      <Route path="/portfolio" component={Portfolio} />
-      <Route path="/resume" component={Resume} />
-      <Route path="/certificates" component={Certificates} />
-      <Route path="/contact" component={Contact} />
-      <Route component={NotFound} />
-    </Switch>
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/resume" element={<Resume />} />
+      <Route path="/certificates" element={<Certificates />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route element={<NotFound />} />
+    </Routes>
   );
-};
+}
 
 export default PagesRouter;
