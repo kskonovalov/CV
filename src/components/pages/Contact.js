@@ -24,16 +24,6 @@ const Contact = () => {
     formSent: false
   });
 
-  // TODO: do message clear after form change
-  // clean message after form submit if write smth again
-  // useEffect(() => {
-  //   if(!formState.error && formState.message.length > 0) {
-  //     updateFormState({
-  //       ...formState,
-  //       message: ''
-  //     });
-  //   }
-  // }, [formData]);
 
   const sendEmail = (formUrl, payload) => {
     (async () => {
