@@ -7,6 +7,9 @@ export { certificatesDataLink };
 const resumeDataLink = '/data/resume.json';
 export { resumeDataLink };
 
+const skillsDataLink = '/data/skills.json';
+export { skillsDataLink };
+
 const emailHandlerLink =
   !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
     ? '/test' // dev

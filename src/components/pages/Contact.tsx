@@ -5,59 +5,94 @@ import { TextInput, Textarea, Button, Row } from 'react-materialize';
 import { personalDataLink, emailHandlerLink } from '../../config';
 import useAsyncHook from '../../helpers/useAsyncHook';
 import renderContactField from '../../helpers/renderContactField';
+import Loader from '../Loader';
+import { CVDataType } from '../../types/CVDataType';
 
 const Contact = () => {
-  const [personal] = useAsyncHook({ link: personalDataLink });
-  const { contacts = {}, onContactsPage = [] } = personal;
+  const [personalData, loading, error] = useAsyncHook({
+    link: personalDataLink,
+  }) as [CVDataType, boolean, string];
 
   // data in form
-  const [formData, setFormData] = useState({
+  type formDataType = {
+    name: string;
+    email: string;
+    message: string;
+  };
+  const [formData, setFormData] = useState<formDataType>({
     name: '',
     email: '',
-    message: ''
+    message: '',
   });
 
   // result of form submission
   const [formState, updateFormState] = useState({
     error: false,
     message: '',
-    formSent: false
+    formSent: false,
   });
 
+  const title = <h1>Contact me</h1>;
 
-  const sendEmail = (formUrl, payload) => {
+  if (loading) {
+    return (
+      <>
+        {title}
+        <Loader />
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <>
+        {title}
+        {error}
+      </>
+    );
+  }
+
+  if (personalData === null) {
+    return <>Something went wrong</>;
+  }
+
+  const { contacts = {}, onContactsPage = [] } = personalData;
+
+  const sendEmail = (formUrl: string, payload: formDataType) => {
     (async () => {
       const prepared = new FormData();
       prepared.append('json', JSON.stringify(payload));
       const rawResponse = await fetch(formUrl, {
         method: 'POST',
-        body: prepared
+        body: prepared,
       });
       const content = await rawResponse.json();
       updateFormState({
         ...content,
-        formSent: true
+        formSent: true,
       });
       // if form was sent correctly, clean the form fields
       if (!content.error) {
         setFormData({
           name: '',
           email: '',
-          message: ''
+          message: '',
         });
       }
     })();
   };
-  
+
   return (
     <>
-      <h1>Contact me</h1>
+      {title}
       <div className="contact-info">
         <p>Feel free to contact me!</p>
         <ul className="contact--info">
-          {onContactsPage.map(objectKey => {
-            if(objectKey in contacts) {
-              return renderContactField(contacts[objectKey]);
+          {onContactsPage.map((objectKey) => {
+            if (objectKey in contacts) {
+              return renderContactField(
+                contacts[objectKey as keyof typeof contacts],
+              );
             }
             return null;
           })}
@@ -67,9 +102,10 @@ const Contact = () => {
       <form
         action={emailHandlerLink}
         method="post"
-        onSubmit={e => {
+        onSubmit={(e) => {
           e.preventDefault();
-          const formUrl = e.target.action;
+          const target = e.target as HTMLFormElement;
+          const formUrl = target.action;
           sendEmail(formUrl, formData);
         }}
       >
@@ -87,7 +123,7 @@ const Contact = () => {
             l={6}
             xl={6}
             value={formData.name}
-            onChange={e => {
+            onChange={(e) => {
               setFormData({ ...formData, name: e.target.value });
             }}
           />
@@ -105,7 +141,7 @@ const Contact = () => {
             l={6}
             xl={6}
             value={formData.email}
-            onChange={e => {
+            onChange={(e) => {
               setFormData({ ...formData, email: e.target.value });
             }}
           />
@@ -122,7 +158,7 @@ const Contact = () => {
             l={12}
             xl={12}
             value={formData.message}
-            onChange={e => {
+            onChange={(e) => {
               setFormData({ ...formData, message: e.target.value });
             }}
           />

@@ -5,10 +5,15 @@ import Loader from './Loader';
 import { personalDataLink } from '../config';
 import useAsyncHook from '../helpers/useAsyncHook';
 import renderAboutField from '../helpers/renderAboutField';
+import { CVDataType } from '../types/CVDataType';
 
 const PersonalInfo = () => {
   NProgress.start();
-  const [CVData, loading] = useAsyncHook({ link: personalDataLink });
+  const [CVData, loading, error] = useAsyncHook({ link: personalDataLink }) as [
+    CVDataType,
+    boolean,
+    string,
+  ];
 
   if (loading) {
     return <Loader />;
@@ -16,8 +21,12 @@ const PersonalInfo = () => {
 
   NProgress.done();
 
-  if (CVData.length === 0) {
-    return <>Something went wrong...</>;
+  if (error) {
+    return error;
+  }
+
+  if (CVData === null) {
+    return <>Data coming soon</>;
   }
 
   const { contacts } = CVData;
@@ -25,7 +34,9 @@ const PersonalInfo = () => {
   return (
     <>
       <h2>Personal info</h2>
-      {Object.keys(contacts).map(field => renderAboutField(contacts[field]))}
+      {Object.keys(contacts).map((field) =>
+        renderAboutField(contacts[field as keyof typeof contacts]),
+      )}
     </>
   );
 };

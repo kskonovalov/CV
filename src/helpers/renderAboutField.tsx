@@ -1,6 +1,8 @@
 import React from 'react';
 
-const renderAboutField = field => {
+import { contactType } from '../types/CVDataType';
+
+const renderAboutField = (field: contactType) => {
   const { blank, link, name, value } = field;
   const target = blank ? '_blank' : '_self';
   return link !== undefined ? (

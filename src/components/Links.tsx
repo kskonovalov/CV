@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LinksData from '../data/LinksData';
 
-function Links() {
+const Links = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const renderLink = (item, index) => {
+  type linkType = {
+    link: string;
+    name: string;
+    icon: string;
+  };
+
+  const renderLink = (item: linkType, index: number) => {
     const iconClass = `fa fa-${item.icon} sidebar__link-icon`;
     return (
       <li key={index} className="sidebar__link-wrap">
@@ -47,6 +53,6 @@ function Links() {
       </ul>
     </>
   );
-}
+};
 
 export default Links;

@@ -10,19 +10,28 @@ import contentClickHandler from '../../helpers/contentClickHandler';
 import Loader from '../Loader';
 import Skills from '../Skills';
 import PersonalInfo from '../PersonalInfo';
+import { CVDataType } from '../../types/CVDataType';
 
-function Profile() {
+const Profile = () => {
   const navigate = useNavigate();
   NProgress.start();
-  const [CVData, loading] = useAsyncHook({ link: personalDataLink });
+  const [CVData, loading, error] = useAsyncHook({ link: personalDataLink }) as [
+    CVDataType,
+    boolean,
+    string,
+  ];
 
   if (loading) {
     return <Loader />;
   }
 
   NProgress.done();
-  if (CVData.length === 0) {
-    return <>Something went wrong...</>;
+  if (error) {
+    return error;
+  }
+
+  if (CVData === null) {
+    return <>Data coming soon</>;
   }
 
   const { name, surname, position, description } = CVData;
@@ -48,6 +57,6 @@ function Profile() {
       <PersonalInfo />
     </>
   );
-}
+};
 
 export default Profile;

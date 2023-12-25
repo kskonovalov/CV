@@ -1,7 +1,16 @@
 import React from 'react';
 import ModalImage from 'react-modal-image';
 
-const Certificate = ({ title, description, link, year, image, thumb }) => {
+import { certificateType } from '../../types/certificateType';
+
+const Certificate = ({
+  title,
+  description,
+  link,
+  date,
+  image,
+  thumb,
+}: certificateType) => {
   const imageWithPath = `/assets/images/${image}`;
   const thumbWithPath = `/assets/images/${thumb}`;
   return (
@@ -10,14 +19,14 @@ const Certificate = ({ title, description, link, year, image, thumb }) => {
         {title}
         <span className="certificate__date">
           <i className="fa fa-calendar certificate__date-icon" />
-          {year}
+          {date}
         </span>
       </h3>
       <ModalImage
         small={thumbWithPath}
         large={imageWithPath}
-        thumb={title}
         hideDownload
+        className="certificate__image"
       />
       <div className="certificate__meta-wrap">
         <a href={link} target="_blank" rel="nofollow noopener noreferrer">
